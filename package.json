@@ -1,0 +1,40 @@
+{
+  "name": "abase-validate",
+  "version": "0.0.0",
+  "description": "Validation from abase-schema",
+  "main": "lib/",
+  "devDependencies": {
+    "goodparts": "^1.1.0",
+    "istanbul": "^0.4.5",
+    "pre-commit": "^1.1.3",
+    "tape": "^4.6.2",
+    "hapi": "^15.1.1",
+    "hoek": "^4.1.0"
+  },
+  "dependencies": {
+    "joi": "^9.0.4"
+  },
+  "scripts": {
+    "test": "tape './test/**/*.test.js'",
+    "lint": "node_modules/.bin/goodparts .",
+    "lint:fix": "node_modules/.bin/goodparts . --fix",
+    "cover": "node_modules/.bin/istanbul cover node_modules/.bin/tape './test/**/*.test.js'",
+    "check-coverage": "node_modules/.bin/istanbul check-coverage",
+    "example": "node example/"
+  },
+  "pre-commit": [
+    "lint",
+    "cover",
+    "check:coverage"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwyl/abase-validate.git"
+  },
+  "author": "@jrans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dwyl/abase-validate/issues"
+  },
+  "homepage": "https://github.com/dwyl/abase-validate#readme"
+}
