@@ -1,7 +1,7 @@
 'use strict';
 
 var newPost = function (values, errors) {
-  return '<form action="/new" method="POST" >'
+  return '<form action="/" method="POST" >'
     + (errors.title ? '<span>' + errors.title + '</span>' : '')
     + '<input name = "title" '
     + (values.title ? 'value ="' + values.title + '" ' : '')
@@ -19,10 +19,10 @@ var newPost = function (values, errors) {
 
 module.exports = [{
   method: 'GET',
-  path: '/new',
+  path: '/',
   handler: function (request, reply) {
     var errors = {};
-    var formCookie = request.state['abase-validate'];
+    var formCookie = request.plugins['abase-validate'];
 
     if (!formCookie) {
       return reply(newPost({}, {}));
@@ -36,7 +36,7 @@ module.exports = [{
   }
 }, {
   method: 'POST',
-  path: '/new',
+  path: '/',
   handler: function (request, reply) {
     return reply('success');
   },
@@ -45,7 +45,7 @@ module.exports = [{
       'abase-validate': {
         tableName: 'posts',
         fields: ['title', 'body'],
-        redirect: '/new'
+        redirect: '/'
       }
     }
   }
