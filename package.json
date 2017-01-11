@@ -1,6 +1,6 @@
 {
   "name": "abase-validate",
-  "version": "0.0.0",
+  "version": "0.0.3",
   "description": "Validation from abase-schema",
   "main": "lib/",
   "devDependencies": {
@@ -19,7 +19,7 @@
     "lint": "node_modules/.bin/goodparts .",
     "lint:fix": "node_modules/.bin/goodparts . --fix",
     "cover": "node_modules/.bin/istanbul cover node_modules/.bin/tape './test/**/*.test.js'",
-    "check-coverage": "node_modules/.bin/istanbul check-coverage",
+    "check:coverage": "node_modules/.bin/istanbul check-coverage",
     "example": "node example/"
   },
   "pre-commit": [
